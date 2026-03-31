@@ -120,6 +120,19 @@ header {
     padding: 20px;
 }
 
+@media (max-width: 600px) {
+    nav ul {
+        flex-wrap: wrap; /* Allows the links to drop to a new line */
+        justify-content: center; /* Centers everything neatly */
+    }
+
+    nav li:first-child {
+        margin-right: 0; /* Removes the rule pushing the links to the right */
+        width: 100%; /* Forces your name to take up the whole top row */
+        text-align: center; /* Centers your name */
+        margin-bottom: 10px; /* Gives a little breathing room above the links */
+    }
+}
 
 h1 {
     margin: .75em 0 1em 0;
