@@ -391,7 +391,6 @@ section#intro {
     display: grid;
     width: 80%;
     max-width: 800px;
-    animation: slideInAcross 1s ease-out forwards;
 }
 
 #about ul {
@@ -408,6 +407,10 @@ section#intro {
 
 #about .grid-container hr.section-divider {
     width: 100%; 
+}
+
+@media (max-width: 1030px) {
+
 }
 
 footer {
