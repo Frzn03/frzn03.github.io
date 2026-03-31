@@ -128,7 +128,8 @@ header {
 
     nav li:first-child {
         margin-right: 0; /* Removes the rule pushing the links to the right */
-        width: 100%; /* Forces your name to take up the whole top row */
+        /* width: 100%; Forces your name to take up the whole top row */
+        flex: 0 0 100%;
         text-align: center; /* Centers your name */
         margin-bottom: 10px; /* Gives a little breathing room above the links */
     }
