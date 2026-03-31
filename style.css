@@ -79,7 +79,7 @@ nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
-    gap: 2em;
+    gap: clamp(10px, 3vw, 2em);
 }
 
 nav a {
@@ -100,11 +100,13 @@ nav li:first-child {
     margin-right: auto; 
     font-family: Roboto;
     font-weight: bold;
+    font-size: clamp(14px, 2vw, 20px);
 }
 
 nav a {
     text-decoration: none;
     color: var(--text-color);
+    font-size: clamp(12px, 1.5vw, 16px);
 }
 
 header {
@@ -117,6 +119,7 @@ header {
     animation: slideDown 0.8s ease-out; 
     padding: 20px;
 }
+
 
 h1 {
     margin: .75em 0 1em 0;
