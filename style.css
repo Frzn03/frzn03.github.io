@@ -186,31 +186,49 @@ section#intro {
 }
 
 #intro .grid-container {
-    display: grid;
-    grid-template-columns: 60% 30%;
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    gap: 200px;
     max-width: 1600px;
     margin: 0 auto; 
     width: 100%;
-    padding: 0 5%
-    
+    padding: 0 5% 
 }
+
 
 #intro .grid-container .text-container {
+    flex: 1 1 500px;
     max-width: 600px;
-    animation: slideInAcross 1s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards;
 }
 
-#intro .grid-container img {
-    columns: 2 / 2;
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
+
+#intro .grid-container img.profile {
+    flex: 0 1 330px;
+    width: 100%;
+    max-width: 330px;
+    height: auto;
     border-radius: 1em;
     opacity: 0;
     animation: fadeIn 0.2s ease-in forwards;
 }
+
+@media (max-width: 1330px) {
+    #intro .grid-container{
+        flex-direction: column;
+        gap: 60px;
+    }
+    #intro .grid-container .text-container {
+        text-align: center;
+        flex-basis: auto;
+    }
+    #intro .grid-container img.profile {
+        flex-basis: auto;
+    }
+}
+
 .work-section .grid-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -261,7 +279,7 @@ section#intro {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 667px;
+    max-width: 400px;
     width: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
@@ -301,7 +319,7 @@ section#intro {
 }
 
 .work-section .image-grid-4x4 {
-    display: grid;
+   display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
     padding: 8px;
@@ -310,6 +328,7 @@ section#intro {
     width: 100%;
     border-radius: 0.5em;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .work-section .image-grid-4x4 img, 
@@ -324,6 +343,38 @@ section#intro {
     display: block;
 }
 
+@media (max-width: 1030px) {
+    
+    /* 1. Stack the Main Outer Container */
+    .work-section .grid-container,
+    .work-section .grid-container.reverse {
+        grid-template-columns: 1fr; /* Changes it from 1fr 2fr (two columns) to 1fr (one column) */
+        gap: 40px;
+    }
+
+    /* Keep the image on top for the 'reverse' sections when stacked */
+    .work-section .grid-container.reverse .grid-text {
+        order: 2;
+    }
+    .work-section .grid-container.reverse .image-frame,
+    .work-section .grid-container.reverse > img {
+        order: 1;
+        margin: 0 auto; /* Centers the image */
+    }
+
+    /* 2. Stack the Inner Text Container */
+    .work-section .grid-container .grid-text {
+        grid-template-columns: 1fr; /* Changes the text layout to 1 column */
+        gap: 20px; /* Adds breathing room between the heading and the paragraph */
+    }
+
+    /* 3. Reset the Paragraph Position */
+    .work-section .grid-container .grid-text p {
+        grid-column: 1; /* Stops it from trying to jump into a 2nd column that no longer exists */
+        grid-row: auto; /* Stops it from trying to span multiple rows */
+        margin-left: 0; /* Removes the desktop indent */
+    }
+}
 
 #about .grid-container {
     display: grid;
