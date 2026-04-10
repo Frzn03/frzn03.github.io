@@ -223,9 +223,9 @@ section#intro {
 
 
 #intro .grid-container img.profile {
-    flex: 0 1 330px;
+    flex: 0 1 400px;
     width: 100%;
-    max-width: 330px;
+    max-width: 400px;
     height: auto;
     border-radius: 1em;
     opacity: 0;
